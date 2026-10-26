@@ -28,7 +28,7 @@ CREATE POLICY "Users can insert own profile" ON profiles FOR INSERT WITH CHECK (
 CREATE TABLE IF NOT EXISTS subjects (
   id              UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
   name            TEXT NOT NULL,
-  subject_code    TEXT,
+  subject_code    TEXT UNIQUE,
   branch          TEXT NOT NULL,
   semester        INT NOT NULL CHECK (semester BETWEEN 1 AND 8),
   description     TEXT,
